@@ -42,6 +42,13 @@
     </script>
 
     <style>
+        :root {
+            --text-primary: #f8fafc;
+            --text-secondary: #e2e8f0;
+            --text-muted: #cbd5e1;
+            --text-soft: #94a3b8;
+        }
+
         /* Custom Styles for Web3 Vibe */
         body {
             background-color: theme('colors.darker');
@@ -49,6 +56,7 @@
                 radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
                 radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
             background-attachment: fixed;
+            color: var(--text-secondary);
         }
 
         /* Scrollbar */
@@ -89,7 +97,7 @@
         }
     </style>
 </head>
-<body class="text-gray-300 font-sans antialiased selection:bg-brand-500 selection:text-white">
+<body class="text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white">
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass border-b-0 border-white/5 transition-all duration-300" id="navbar">
@@ -98,23 +106,23 @@
                 Aham
             </a>
             <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-white transition-colors">About</a>
-                <a href="#skills" class="hover:text-white transition-colors">Skills</a>
-                <a href="#projects" class="hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="hover:text-white transition-colors">Contact</a>
+                <a href="#about" class="hover:text-white transition-colors text-slate-200">About</a>
+                <a href="#skills" class="hover:text-white transition-colors text-slate-200">Skills</a>
+                <a href="#projects" class="hover:text-white transition-colors text-slate-200">Projects</a>
+                <a href="#contact" class="hover:text-white transition-colors text-slate-200">Contact</a>
             </div>
             <!-- Mobile Menu Button -->
-            <button class="md:hidden text-gray-300 hover:text-white" id="mobile-menu-btn">
+            <button class="md:hidden text-slate-200 hover:text-white" id="mobile-menu-btn">
                 <i class="ph ph-list text-2xl"></i>
             </button>
         </div>
         <!-- Mobile Menu (Hidden by default) -->
         <div class="md:hidden hidden glass absolute w-full border-t border-white/10" id="mobile-menu">
             <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium">
-                <a href="#about" class="mobile-link hover:text-white transition-colors">About</a>
-                <a href="#skills" class="mobile-link hover:text-white transition-colors">Skills</a>
-                <a href="#projects" class="mobile-link hover:text-white transition-colors">Projects</a>
-                <a href="#contact" class="mobile-link hover:text-white transition-colors">Contact</a>
+                <a href="#about" class="mobile-link hover:text-white transition-colors text-slate-200">About</a>
+                <a href="#skills" class="mobile-link hover:text-white transition-colors text-slate-200">Skills</a>
+                <a href="#projects" class="mobile-link hover:text-white transition-colors text-slate-200">Projects</a>
+                <a href="#contact" class="mobile-link hover:text-white transition-colors text-slate-200">Contact</a>
             </div>
         </div>
     </nav>
@@ -131,7 +139,7 @@
                     Aham Sanjag <br>
                     <span class="text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-accent-500">Developer | AI/ML Enthusiast</span>
                 </h1>
-                <p class="text-lg md:text-xl text-gray-400 mb-10 max-w-2xl leading-relaxed">
+                <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
                     Passionate about building intelligent solutions, data-driven applications, and user-centric software. I thrive in hackathons, turning complex data into actionable insights and impactful experiences.
                 </p>
                 <div class="flex flex-wrap gap-4">
@@ -157,29 +165,29 @@
                 <h2 class="text-3xl font-bold text-white mb-6 flex items-center gap-2">
                     <i class="ph ph-user text-brand-500"></i> About Me
                 </h2>
-                <p class="text-gray-400 leading-relaxed mb-6 text-lg">
-                    I'm a passionate developer who thrives in high-energy environments. I've participated in numerous hackathons where I love the challenge of taking an idea from zero to prototype and shipping something meaningful under pressure.
+                <p class="text-slate-300 leading-relaxed mb-6 text-lg">
+                    I'm a passionate developer who thrives in high-energy environments. I've participated in numerous hackathons where I love the challenge of taking an idea from zero to prototype and building something meaningful under pressure.
                 </p>
-                <p class="text-gray-400 leading-relaxed text-lg">
-                    The idea is simple: write clean code, focus on the user experience, and never stop learning. Whether it's spinning up a React frontend, writing Solidity smart contracts, or making sense of complex datasets, I enjoy building solutions that feel polished and purposeful.
+                <p class="text-slate-300 leading-relaxed text-lg">
+                    The idea is simple: write clean code, focus on the user experience, and never stop learning. Whether it's spinning up a React frontend, writing Solidity smart contracts, or making AI models actually useful, I enjoy solving real problems with a practical edge.
                 </p>
                 
                 <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
                     <div class="glass p-4 rounded-xl text-center border-white/5">
                         <h4 class="text-2xl font-bold text-white mb-1">10+</h4>
-                        <p class="text-xs text-gray-500 uppercase tracking-wider">Hackathons</p>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Hackathons</p>
                     </div>
                     <div class="glass p-4 rounded-xl text-center border-white/5">
                         <h4 class="text-2xl font-bold text-white mb-1">3</h4>
-                        <p class="text-xs text-gray-500 uppercase tracking-wider">Wins</p>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Wins</p>
                     </div>
                     <div class="glass p-4 rounded-xl text-center border-white/5">
                         <h4 class="text-2xl font-bold text-white mb-1">20+</h4>
-                        <p class="text-xs text-gray-500 uppercase tracking-wider">Projects</p>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Projects</p>
                     </div>
                     <div class="glass p-4 rounded-xl text-center border-white/5">
                         <h4 class="text-2xl font-bold text-white mb-1">3 Yrs</h4>
-                        <p class="text-xs text-gray-500 uppercase tracking-wider">Experience</p>
+                        <p class="text-xs text-slate-400 uppercase tracking-wider">Experience</p>
                     </div>
                 </div>
             </div>
@@ -191,7 +199,7 @@
         <div class="max-w-6xl mx-auto px-6 fade-in-section">
             <div class="text-center mb-16">
                 <h2 class="text-3xl font-bold text-white mb-4">Tech Arsenal</h2>
-                <p class="text-black-400 max-w-2xl mx-auto">The tools, languages, and frameworks I use to bring ideas to life rapidly.</p>
+                <p class="text-slate-300 max-w-2xl mx-auto">The tools, languages, and frameworks I use to bring ideas to life rapidly.</p>
             </div>
             
             <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -202,9 +210,9 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-4">AI & Machine Learning</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">Python</span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">Python</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">OpenCV</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">YOLO</span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">YOLO</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400">Scikit-Learn</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">TensorFlow/PyTorch</span>
                     </div>
@@ -218,7 +226,7 @@
                     <h3 class="text-xl font-bold text-white mb-4">Data Science</h3>
                     <div class="flex flex-wrap gap-2">
                         <span class="px-3 py-1 text-sm rounded-full bg-green-500/10 border border-green-500/20 text-green-400">Pandas</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">NumPy</span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">NumPy</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400">Jupyter</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-red-400/10 border border-red-400/20 text-red-300">XGBoost</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-500">SQL</span>
@@ -232,10 +240,10 @@
                     </div>
                     <h3 class="text-xl font-bold text-white mb-4">Software Engineering</h3>
                     <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-full bg-gray-500/10 border border-gray-500/20 text-gray-300">C++</span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-gray-500/10 border border-gray-500/20 text-slate-200">C++</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400">React</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-green-500/10 border border-green-500/20 text-green-400">Node.js</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-gray-300">Git/GitHub</span>
+                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">Git/GitHub</span>
                         <span class="px-3 py-1 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">Docker</span>
                     </div>
                 </div>
@@ -249,7 +257,7 @@
             <div class="flex justify-between items-end mb-12">
                 <div>
                     <h2 class="text-3xl font-bold text-white mb-4">Featured Projects</h2>
-                    <p class="text-gray-400 max-w-xl">A selection of hackathon winners and weekend builds.</p>
+                    <p class="text-slate-300 max-w-xl">A selection of hackathon winners and weekend builds.</p>
                 </div>
                 <a href="https://github.com/AhamSanjag" target="_blank" class="hidden md:flex items-center gap-2 text-brand-400 hover:text-brand-300 transition-colors">
                     View all on GitHub <i class="ph ph-arrow-right"></i>
@@ -260,20 +268,21 @@
                 <!-- Project Card 1 -->
                 <div class="glass rounded-2xl overflow-hidden border-white/5 group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                     <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://placehold.co/600x400/1a1a1a/8b5cf6?text=Road+Vision+AI" alt="Road Vision AI" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+                        <img src="https://placehold.co/600x400/1a1a1a/8b5cf6?text=Road+Vision+AI" alt="Road Vision AI" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">Road Vision AI</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-1">An intelligent computer vision application designed to analyze road conditions, detect obstacles, and enhance autonomous driving safety.</p>
+                        <p class="text-slate-300 text-sm mb-6 flex-1">An intelligent computer vision application designed to analyze road conditions, detect obstacles, and enhance autonomous driving safety through real-time visual insights.</p>
                         
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">OpenCV</span>
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">YOLO</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">OpenCV</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">YOLO</span>
                         </div>
                         
                         <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
-                            <a href="https://github.com/AhamSanjag/Road-Vision-AI" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-2xl"></i></a>
+                            <a href="https://github.com/AhamSanjag/Road-Vision-AI" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
+                            <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
                         </div>
                     </div>
                 </div>
@@ -281,20 +290,21 @@
                 <!-- Project Card 2 -->
                 <div class="glass rounded-2xl overflow-hidden border-white/5 group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                     <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://placehold.co/600x400/1a1a1a/06b6d4?text=Trade+Prediction" alt="Trade Prediction" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+                        <img src="https://placehold.co/600x400/1a1a1a/06b6d4?text=Trade+Prediction" alt="Trade Prediction" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">Trade Prediction</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-1">A machine learning pipeline built to analyze historical market data, extract indicators, and predict future trading trends.</p>
+                        <p class="text-slate-300 text-sm mb-6 flex-1">A machine learning pipeline built to analyze historical market data, extract indicators, and predict future trading trends.</p>
                         
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">Scikit-Learn</span>
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">Pandas</span>
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">XGBoost</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Scikit-Learn</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Pandas</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">XGBoost</span>
                         </div>
                         
                         <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
-                            <a href="https://github.com/AhamSanjag/Trade-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-2xl"></i></a>
+                            <a href="https://github.com/AhamSanjag/Trade-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
+                            <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
                         </div>
                     </div>
                 </div>
@@ -302,20 +312,21 @@
                 <!-- Project Card 3 -->
                 <div class="glass rounded-2xl overflow-hidden border-white/5 group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
                     <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://placehold.co/600x400/1a1a1a/22c55e?text=Fuel+Prediction" alt="Fuel Prediction" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-all duration-300">
+                        <img src="https://placehold.co/600x400/1a1a1a/22c55e?text=Fuel+Prediction" alt="Fuel Prediction" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500">
                     </div>
                     <div class="p-6 flex-1 flex flex-col">
                         <h3 class="text-xl font-bold text-white mb-2">Fuel Prediction</h3>
-                        <p class="text-gray-400 text-sm mb-6 flex-1">A data-driven regression model aimed at forecasting fuel consumption and optimizing efficiency for logistics and routing.</p>
+                        <p class="text-slate-300 text-sm mb-6 flex-1">A data-driven regression model aimed at forecasting fuel consumption and optimizing efficiency for logistics and routing.</p>
                         
                         <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">Pandas</span>
-                            <span class="text-xs text-gray-500 bg-white/5 px-2 py-1 rounded">Jupyter</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Python</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Pandas</span>
+                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Jupyter</span>
                         </div>
                         
                         <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
-                            <a href="https://github.com/AhamSanjag/Fuel-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-2xl"></i></a>
+                            <a href="https://github.com/AhamSanjag/Fuel-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
+                            <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
                         </div>
                     </div>
                 </div>
@@ -334,38 +345,38 @@
         <div class="max-w-6xl mx-auto px-6 relative z-10 fade-in-section">
             <div class="text-center max-w-2xl mx-auto mb-16">
                 <h2 class="text-4xl font-bold text-white mb-6">Ready to Build?</h2>
-                <p class="text-gray-400 text-lg mb-8">
+                <p class="text-slate-300 text-lg mb-8">
                     Looking for a driven developer for your next hackathon team? Or have an exciting web3 project in mind? Let's connect.
                 </p>
-                <a href="mailto:hello@example.com" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-400 transition-colors shadow-[0_0_20px_rgba(139,92,246,0.5)]">
+                <a href="mailto:hello@example.com" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-400 transition-colors shadow-[0_0_20px_rgba(139,92,246,0.45)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)]">
                     <i class="ph ph-envelope-simple text-xl"></i> Drop me an email
                 </a>
             </div>
 
             <!-- Social Links (Matching ETHGlobal Form) -->
             <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-16">
-                <a href="https://github.com/AhamSanjag" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-gray-400 hover:text-white transition-colors group">
+                <a href="https://github.com/AhamSanjag" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-white transition-colors group">
                     <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-white/10 border-white/5 transition-all">
                         <i class="ph ph-github-logo text-3xl"></i>
                     </div>
                     <span class="text-sm font-medium">GitHub</span>
                 </a>
                 
-                <a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-gray-400 hover:text-[#1DA1F2] transition-colors group">
+                <a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-[#1DA1F2] transition-colors group">
                     <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#1DA1F2]/10 group-hover:border-[#1DA1F2]/30 border-white/5 transition-all">
                         <i class="ph ph-twitter-logo text-3xl"></i>
                     </div>
                     <span class="text-sm font-medium">X / Twitter</span>
                 </a>
                 
-                <a href="https://linkedin.com/in/aham-sanjag" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-gray-400 hover:text-[#0A66C2] transition-colors group">
+                <a href="https://linkedin.com/in/aham-sanjag" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-[#0A66C2] transition-colors group">
                     <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/30 border-white/5 transition-all">
                         <i class="ph ph-linkedin-logo text-3xl"></i>
                     </div>
                     <span class="text-sm font-medium">LinkedIn</span>
                 </a>
                 
-                <a href="https://t.me/YourHandle" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-gray-400 hover:text-[#0088cc] transition-colors group">
+                <a href="https://t.me/YourHandle" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-[#0088cc] transition-colors group">
                     <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#0088cc]/10 group-hover:border-[#0088cc]/30 border-white/5 transition-all">
                         <i class="ph ph-telegram-logo text-3xl"></i>
                     </div>
@@ -374,10 +385,10 @@
             </div>
 
             <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-gray-500 text-sm">
+                <p class="text-slate-400 text-sm">
                     &copy; <span id="year"></span> Aham Sanjag. Built for the next challenge.
                 </p>
-                <div class="flex gap-4 text-sm text-gray-500">
+                <div class="flex gap-4 text-sm text-slate-400">
                     <span>Designed with <i class="ph-fill ph-heart text-brand-500"></i> & Tailwind</span>
                 </div>
             </div>
