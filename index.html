@@ -4,19 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Developer Portfolio | Hackathon Ready</title>
-    
-    <!-- Google Fonts: Inter -->
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Tailwind CSS -->
+
     <script src="https://cdn.tailwindcss.com"></script>
-    
-    <!-- Phosphor Icons -->
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
 
-    <!-- Tailwind Config for Custom Colors/Fonts -->
     <script>
         tailwind.config = {
             theme: {
@@ -28,12 +23,12 @@
                         dark: '#0a0a0a',
                         darker: '#050505',
                         brand: {
-                            500: '#8b5cf6', // Violet
+                            500: '#8b5cf6',
                             400: '#a78bfa',
                             glow: 'rgba(139, 92, 246, 0.5)'
                         },
                         accent: {
-                            500: '#06b6d4', // Cyan
+                            500: '#06b6d4',
                         }
                     }
                 }
@@ -43,379 +38,503 @@
 
     <style>
         :root {
-            --text-primary: #f8fafc;
-            --text-secondary: #e2e8f0;
-            --text-muted: #cbd5e1;
-            --text-soft: #94a3b8;
-            --heading-bright: #f3f4ff;
-            --heading-soft: #dadcfb;
+            --bg-1: #050505;
+            --bg-2: #0b1020;
+            --panel: rgba(17, 17, 22, 0.72);
+            --panel-strong: rgba(12, 12, 18, 0.9);
+            --border: rgba(255,255,255,0.09);
+            --text: #e2e8f0;
+            --text-soft: #c8d1e3;
+            --text-muted: #94a3b8;
+            --heading: #f3f4ff;
+            --heading-soft: #dfe3ff;
+            --brand: #8b5cf6;
+            --brand-2: #a78bfa;
+            --cyan: #06b6d4;
+            --shadow: 0 30px 80px rgba(139, 92, 246, 0.18);
         }
 
-        /* Custom Styles for Web3 Vibe */
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            background-color: theme('colors.darker');
-            background-image: 
-                radial-gradient(at 0% 0%, rgba(139, 92, 246, 0.15) 0px, transparent 50%),
-                radial-gradient(at 100% 100%, rgba(6, 182, 212, 0.15) 0px, transparent 50%);
-            background-attachment: fixed;
-            color: var(--text-secondary);
+            background:
+                radial-gradient(circle at 10% 10%, rgba(139, 92, 246, 0.18), transparent 35%),
+                radial-gradient(circle at 80% 80%, rgba(6, 182, 212, 0.18), transparent 28%),
+                linear-gradient(135deg, var(--bg-1), var(--bg-2));
+            color: var(--text);
+            overflow-x: hidden;
+        }
+
+        body::before {
+            content: "";
+            position: fixed;
+            inset: 0;
+            background-image:
+                linear-gradient(rgba(255,255,255,0.02) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(255,255,255,0.02) 1px, transparent 1px);
+            background-size: 26px 26px;
+            mask-image: radial-gradient(circle at center, black 45%, transparent 100%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .page-shell {
+            position: relative;
+            z-index: 1;
+        }
+
+        .glass {
+            background: rgba(18, 18, 23, 0.62);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border: 1px solid var(--border);
+            box-shadow: inset 0 1px 0 rgba(255,255,255,0.04);
         }
 
         .heading-elevated {
-            color: var(--heading-bright);
-            letter-spacing: -0.04em;
-            text-shadow: 0 0 18px rgba(167, 139, 250, 0.12);
+            color: var(--heading);
+            letter-spacing: -0.05em;
+            text-shadow: 0 12px 40px rgba(167,139,250,0.12);
         }
 
         .section-heading {
             color: var(--heading-soft);
-            letter-spacing: -0.03em;
+            letter-spacing: -0.04em;
         }
 
-        /* Scrollbar */
-        ::-webkit-scrollbar {
-            width: 8px;
-        }
-        ::-webkit-scrollbar-track {
-            background: theme('colors.darker');
-        }
-        ::-webkit-scrollbar-thumb {
-            background: #333;
-            border-radius: 4px;
-        }
-        ::-webkit-scrollbar-thumb:hover {
-            background: theme('colors.brand.500');
+        .section-shell {
+            position: relative;
+            overflow: hidden;
         }
 
-        /* Fade-in Animation Classes */
-        .fade-in-section {
+        .section-shell::before {
+            content: "";
+            position: absolute;
+            inset: auto 10% 0 10%;
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.1), transparent);
+        }
+
+        .glow-orb {
+            position: absolute;
+            border-radius: 9999px;
+            filter: blur(90px);
+            opacity: 0.6;
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        .hero-card {
+            position: relative;
+            background: linear-gradient(145deg, rgba(18, 18, 22, 0.78), rgba(12, 12, 18, 0.45));
+            border: 1px solid rgba(255,255,255,0.08);
+            box-shadow: var(--shadow);
+        }
+
+        .hero-card::before {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(135deg, rgba(139,92,246,0.18), rgba(6,182,212,0.06), transparent 60%);
+            pointer-events: none;
+        }
+
+        .tech-pill {
+            position: relative;
+            overflow: hidden;
+            transition: transform 0.25s ease, border-color 0.25s ease, box-shadow 0.25s ease;
+        }
+
+        .tech-pill:hover {
+            transform: translateY(-2px);
+            border-color: rgba(255,255,255,0.18);
+            box-shadow: 0 10px 28px rgba(15,23,42,0.18);
+        }
+
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            transform-style: preserve-3d;
+            transition: transform 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .project-card:hover {
+            transform: translateY(-8px) rotateX(1deg) rotateY(-1deg);
+            border-color: rgba(167,139,250,0.4);
+            box-shadow: 0 30px 60px rgba(76, 29, 149, 0.18);
+        }
+
+        .project-card::before {
+            content: "";
+            position: absolute;
+            inset: -30% -20% auto auto;
+            width: 180px;
+            height: 180px;
+            background: radial-gradient(circle, rgba(139,92,246,0.24), transparent 60%);
+            transform: translate(20%, -10%);
+            pointer-events: none;
+        }
+
+        .project-card img {
+            transition: transform 0.5s ease, filter 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.06);
+            filter: saturate(1.15);
+        }
+
+        .project-card .card-overlay {
+            position: absolute;
+            inset: auto 0 0 0;
+            height: 50%;
+            background: linear-gradient(180deg, transparent, rgba(7, 7, 12, 0.8));
+            pointer-events: none;
+        }
+
+        .social-link {
+            transition: transform 0.25s ease, border-color 0.25s ease, color 0.25s ease;
+        }
+
+        .social-link:hover {
+            transform: translateY(-4px);
+        }
+
+        .interactive-badge {
             opacity: 0;
-            transform: translateY(20px);
-            visibility: hidden;
-            transition: opacity 0.6s ease-out, transform 0.6s ease-out;
-            will-change: opacity, visibility;
-        }
-        .fade-in-section.is-visible {
-            opacity: 1;
-            transform: none;
-            visibility: visible;
+            transform: translateY(16px);
+            animation: floatUp 0.7s ease forwards;
         }
 
-        /* Glassmorphism utility */
-        .glass {
-            background: rgba(20, 20, 20, 0.6);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            border: 1px solid rgba(255, 255, 255, 0.08);
+        @keyframes floatUp {
+            from { opacity: 0; transform: translateY(16px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .reveal {
+            opacity: 0;
+            transform: translateY(36px);
+            transition: opacity 0.8s ease, transform 0.8s ease;
+        }
+
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        @media (max-width: 768px) {
+            .section-shell { padding-top: 5rem; }
         }
     </style>
 </head>
-<body class="text-slate-200 font-sans antialiased selection:bg-brand-500 selection:text-white">
+<body class="font-sans antialiased selection:bg-brand-500 selection:text-white">
+    <div class="page-shell relative">
+        <div class="glow-orb w-80 h-80 bg-brand-500/20 left-[-5rem] top-20"></div>
+        <div class="glow-orb w-[26rem] h-[26rem] bg-cyan-500/10 right-[-8rem] top-[20rem]"></div>
 
-    <!-- Navigation -->
-    <nav class="fixed w-full z-50 glass border-b-0 border-white/5 transition-all duration-300" id="navbar">
-        <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-xl font-bold heading-elevated tracking-tighter">
-                Aham
-            </a>
-            <div class="hidden md:flex space-x-8 text-sm font-medium">
-                <a href="#about" class="hover:text-white transition-colors text-slate-200">About</a>
-                <a href="#skills" class="hover:text-white transition-colors text-slate-200">Skills</a>
-                <a href="#projects" class="hover:text-white transition-colors text-slate-200">Projects</a>
-                <a href="#contact" class="hover:text-white transition-colors text-slate-200">Contact</a>
-            </div>
-            <!-- Mobile Menu Button -->
-            <button class="md:hidden text-slate-200 hover:text-white" id="mobile-menu-btn">
-                <i class="ph ph-list text-2xl"></i>
-            </button>
-        </div>
-        <!-- Mobile Menu (Hidden by default) -->
-        <div class="md:hidden hidden glass absolute w-full border-t border-white/10" id="mobile-menu">
-            <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium">
-                <a href="#about" class="mobile-link hover:text-white transition-colors text-slate-200">About</a>
-                <a href="#skills" class="mobile-link hover:text-white transition-colors text-slate-200">Skills</a>
-                <a href="#projects" class="mobile-link hover:text-white transition-colors text-slate-200">Projects</a>
-                <a href="#contact" class="mobile-link hover:text-white transition-colors text-slate-200">Contact</a>
-            </div>
-        </div>
-    </nav>
-
-    <!-- Hero Section -->
-    <header class="relative min-h-screen flex items-center justify-center pt-20 overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6 relative z-10 w-full">
-            <div class="max-w-3xl">
-                <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-xs font-semibold tracking-wide uppercase mb-6">
-                    <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
-                    Available for Hackathons
+        <nav class="fixed w-full z-50 border-b border-white/5" id="navbar">
+            <div class="max-w-6xl mx-auto px-6 py-4 flex justify-between items-center">
+                <a href="#" class="text-xl font-bold heading-elevated tracking-tighter">
+                    Aham
+                </a>
+                <div class="hidden md:flex items-center gap-8 text-sm font-medium">
+                    <a href="#about" class="nav-link text-slate-200 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="nav-link text-slate-200 hover:text-white transition-colors">Skills</a>
+                    <a href="#projects" class="nav-link text-slate-200 hover:text-white transition-colors">Projects</a>
+                    <a href="#contact" class="nav-link text-slate-200 hover:text-white transition-colors">Contact</a>
                 </div>
-                <h1 class="text-5xl md:text-7xl font-extrabold heading-elevated leading-tight tracking-tight mb-6">
-                    Aham Sanjag <br>
-                    <span class="text-3xl md:text-5xl text-transparent bg-clip-text bg-gradient-to-r from-brand-400 to-accent-500">Developer | AI/ML Enthusiast</span>
-                </h1>
-                <p class="text-lg md:text-xl text-slate-300 mb-10 max-w-2xl leading-relaxed">
-                    Passionate about building intelligent solutions, data-driven applications, and user-centric software. I thrive in hackathons, turning complex data into actionable insights and impactful experiences.
-                </p>
-                <div class="flex flex-wrap gap-4">
-                    <a href="#projects" class="px-8 py-3 rounded-lg bg-white text-black font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:shadow-[0_0_30px_rgba(255,255,255,0.4)]">
-                        View Projects
+
+                <button class="md:hidden text-slate-200 hover:text-white" id="mobile-menu-btn" aria-label="Open menu">
+                    <i class="ph ph-list text-2xl"></i>
+                </button>
+            </div>
+
+            <div class="md:hidden hidden glass absolute w-full border-t border-white/10" id="mobile-menu">
+                <div class="flex flex-col px-6 py-4 space-y-4 text-sm font-medium">
+                    <a href="#about" class="mobile-link text-slate-200 hover:text-white transition-colors">About</a>
+                    <a href="#skills" class="mobile-link text-slate-200 hover:text-white transition-colors">Skills</a>
+                    <a href="#projects" class="mobile-link text-slate-200 hover:text-white transition-colors">Projects</a>
+                    <a href="#contact" class="mobile-link text-slate-200 hover:text-white transition-colors">Contact</a>
+                </div>
+            </div>
+        </nav>
+
+        <header class="relative min-h-screen flex items-center justify-center pt-28 pb-20 overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6 w-full relative z-10">
+                <div class="hero-card p-8 md:p-12 rounded-[32px]">
+                    <div class="grid grid-cols-1 lg:grid-cols-[1.3fr_0.7fr] gap-10 items-center">
+                        <div class="relative z-10">
+                            <div class="inline-flex items-center gap-2 px-3 py-1.5 rounded-full border border-brand-500/30 bg-brand-500/10 text-brand-400 text-[10px] md:text-xs font-semibold tracking-[0.18em] uppercase mb-6">
+                                <span class="w-2 h-2 rounded-full bg-brand-500 animate-pulse"></span>
+                                Available for Hackathons
+                            </div>
+
+                            <h1 class="text-5xl md:text-7xl font-extrabold heading-elevated leading-[0.95] tracking-[-0.06em] mb-6">
+                                Aham Sanjag
+                            </h1>
+                            <h2 class="text-2xl md:text-4xl font-semibold bg-gradient-to-r from-brand-200 via-white to-cyan-300 bg-clip-text text-transparent mb-6 tracking-[-0.04em]">
+                                Developer | AI/ML Enthusiast
+                            </h2>
+
+                            <p class="text-base md:text-xl text-slate-300 max-w-2xl leading-relaxed mb-8">
+                                Passionate about building intelligent solutions, data-driven applications, and user-centric software. I thrive in hackathons, turning complex data into actionable insights and impactful experiences.
+                            </p>
+
+                            <div class="flex flex-wrap gap-4">
+                                <a href="#projects" class="px-7 py-3.5 rounded-xl bg-white text-black font-semibold hover:bg-gray-200 transition-colors shadow-[0_0_20px_rgba(255,255,255,0.2)]">
+                                    View Projects
+                                </a>
+                                <a href="#contact" class="px-7 py-3.5 rounded-xl border border-white/15 bg-white/5 text-white font-semibold hover:bg-white/10 transition-colors">
+                                    Connect with me
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="relative z-10 flex justify-center lg:justify-end">
+                            <div class="glass w-full max-w-md rounded-[28px] p-5">
+                                <div class="grid grid-cols-2 gap-4">
+                                    <div class="glass rounded-2xl p-4">
+                                        <div class="text-3xl font-bold text-white">10+</div>
+                                        <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400 mt-2">Hackathons</div>
+                                    </div>
+                                    <div class="glass rounded-2xl p-4">
+                                        <div class="text-3xl font-bold text-white">3</div>
+                                        <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400 mt-2">Wins</div>
+                                    </div>
+                                    <div class="glass rounded-2xl p-4">
+                                        <div class="text-3xl font-bold text-white">20+</div>
+                                        <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400 mt-2">Projects</div>
+                                    </div>
+                                    <div class="glass rounded-2xl p-4">
+                                        <div class="text-3xl font-bold text-white">3 Yrs</div>
+                                        <div class="text-[10px] uppercase tracking-[0.18em] text-slate-400 mt-2">Experience</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+
+        <main>
+            <section id="about" class="section-shell py-24 relative">
+                <div class="max-w-4xl mx-auto px-6 reveal">
+                    <div class="w-full">
+                        <h2 class="text-3xl font-bold section-heading mb-6 flex items-center gap-2">
+                            <i class="ph ph-user text-brand-500"></i> About Me
+                        </h2>
+                        <p class="text-slate-300 leading-relaxed mb-6 text-lg">
+                            I'm a passionate developer who thrives in high-energy environments. I've participated in numerous hackathons where I love the challenge of taking an idea from zero to prototype and building something meaningful under pressure.
+                        </p>
+                        <p class="text-slate-300 leading-relaxed text-lg">
+                            The idea is simple: write clean code, focus on the user experience, and never stop learning. Whether it's spinning up a React frontend, writing Solidity smart contracts, or making AI models actually useful, I enjoy solving real problems with a practical edge.
+                        </p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="skills" class="section-shell py-24 bg-black/20 border-y border-white/5 relative">
+                <div class="max-w-6xl mx-auto px-6 reveal">
+                    <div class="text-center mb-16">
+                        <h2 class="text-3xl font-bold text-white mb-4">Tech Arsenal</h2>
+                        <p class="text-slate-300 max-w-2xl mx-auto">The tools, languages, and frameworks I use to bring ideas to life rapidly.</p>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                        <div class="glass p-8 rounded-[28px] border-white/5 hover:border-brand-500/30 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="ph ph-brain"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">AI & Machine Learning</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">Python</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">OpenCV</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">YOLO</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400">Scikit-Learn</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">TensorFlow/PyTorch</span>
+                            </div>
+                        </div>
+
+                        <div class="glass p-8 rounded-[28px] border-white/5 hover:border-accent-500/30 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-accent-500/20 text-accent-500 flex items-center justify-center text-2xl mb-6">
+                                <i class="ph ph-chart-line-up"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">Data Science</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-green-500/10 border border-green-500/20 text-green-400">Pandas</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">NumPy</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400">Jupyter</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-red-400/10 border border-red-400/20 text-red-300">XGBoost</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-500">SQL</span>
+                            </div>
+                        </div>
+
+                        <div class="glass p-8 rounded-[28px] border-white/5 hover:border-purple-500/30 transition-colors">
+                            <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-6">
+                                <i class="ph ph-code"></i>
+                            </div>
+                            <h3 class="text-xl font-bold text-white mb-4">Software Engineering</h3>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-gray-500/10 border border-gray-500/20 text-slate-200">C++</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400">React</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-green-500/10 border border-green-500/20 text-green-400">Node.js</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">Git/GitHub</span>
+                                <span class="tech-pill px-3 py-1.5 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">Docker</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="projects" class="section-shell py-24 relative">
+                <div class="max-w-6xl mx-auto px-6 reveal">
+                    <div class="flex justify-between items-end mb-12">
+                        <div>
+                            <h2 class="text-3xl font-bold section-heading mb-4">Featured Projects</h2>
+                            <p class="text-slate-300 max-w-xl">A selection of hackathon winners and weekend builds.</p>
+                        </div>
+                        <a href="https://github.com/AhamSanjag" target="_blank" class="hidden md:flex items-center gap-2 text-brand-400 hover:text-brand-300 transition-colors">
+                            View all on GitHub <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                        <article class="project-card glass rounded-[28px] overflow-hidden border-white/5 group flex flex-col relative">
+                            <div class="relative h-52 overflow-hidden bg-black">
+                                <img src="https://placehold.co/600x400/1a1a1a/8b5cf6?text=Road+Vision+AI" alt="Road Vision AI" class="w-full h-full object-cover opacity-90">
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col relative z-10">
+                                <h3 class="text-xl font-bold text-white mb-2">Road Vision AI</h3>
+                                <p class="text-slate-300 text-sm mb-6 flex-1">An intelligent computer vision application designed to analyze road conditions, detect obstacles, and enhance autonomous driving safety through real-time visual insights.</p>
+
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Python</span>
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">OpenCV</span>
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">YOLO</span>
+                                </div>
+
+                                <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
+                                    <a href="https://github.com/AhamSanjag/Road-Vision-AI" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
+                                    <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card glass rounded-[28px] overflow-hidden border-white/5 group flex flex-col relative">
+                            <div class="relative h-52 overflow-hidden bg-black">
+                                <img src="https://placehold.co/600x400/1a1a1a/06b6d4?text=Trade+Prediction" alt="Trade Prediction" class="w-full h-full object-cover opacity-90">
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col relative z-10">
+                                <h3 class="text-xl font-bold text-white mb-2">Trade Prediction</h3>
+                                <p class="text-slate-300 text-sm mb-6 flex-1">A machine learning pipeline built to analyze historical market data, extract indicators, and predict future trading trends.</p>
+
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Scikit-Learn</span>
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Pandas</span>
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">XGBoost</span>
+                                </div>
+
+                                <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
+                                    <a href="https://github.com/AhamSanjag/Trade-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
+                                    <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
+                                </div>
+                            </div>
+                        </article>
+
+                        <article class="project-card glass rounded-[28px] overflow-hidden border-white/5 group flex flex-col relative">
+                            <div class="relative h-52 overflow-hidden bg-black">
+                                <img src="https://placehold.co/600x400/1a1a1a/22c55e?text=Fuel+Prediction" alt="Fuel Prediction" class="w-full h-full object-cover opacity-90">
+                                <div class="card-overlay"></div>
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col relative z-10">
+                                <h3 class="text-xl font-bold text-white mb-2">Fuel Prediction</h3>
+                                <p class="text-slate-300 text-sm mb-6 flex-1">A data-driven regression model aimed at forecasting fuel consumption and optimizing efficiency for logistics and routing.</p>
+
+                                <div class="flex flex-wrap gap-2 mb-6">
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Python</span>
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Pandas</span>
+                                    <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Jupyter</span>
+                                </div>
+
+                                <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
+                                    <a href="https://github.com/AhamSanjag/Fuel-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
+                                    <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
+                                </div>
+                            </div>
+                        </article>
+                    </div>
+
+                    <div class="mt-8 text-center md:hidden">
+                        <a href="https://github.com/AhamSanjag" target="_blank" class="inline-flex items-center gap-2 text-brand-400 font-medium">
+                            View all on GitHub <i class="ph ph-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact" class="bg-black/60 border-t border-white/10 pt-20 pb-10 relative overflow-hidden">
+            <div class="max-w-6xl mx-auto px-6 relative z-10 reveal">
+                <div class="text-center max-w-2xl mx-auto mb-16">
+                    <h2 class="text-4xl font-bold text-white mb-6">Ready to Build?</h2>
+                    <p class="text-slate-300 text-lg mb-8">
+                        Looking for a driven developer for your next hackathon team? Or have an exciting web3 project in mind? Let's connect.
+                    </p>
+                    <a href="mailto:hello@example.com" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-400 transition-colors shadow-[0_0_20px_rgba(139,92,246,0.45)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)]">
+                        <i class="ph ph-envelope-simple text-xl"></i> Drop me an email
                     </a>
-                    <a href="#contact" class="px-8 py-3 rounded-lg border border-white/20 glass text-white font-semibold hover:bg-white/10 transition-colors">
-                        Connect with me
+                </div>
+
+                <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-16">
+                    <a href="https://github.com/AhamSanjag" target="_blank" rel="noopener noreferrer" class="social-link flex flex-col items-center gap-2 text-slate-300 hover:text-white transition-colors group">
+                        <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-white/10 border-white/5 transition-all">
+                            <i class="ph ph-github-logo text-3xl"></i>
+                        </div>
+                        <span class="text-sm font-medium">GitHub</span>
+                    </a>
+
+                    <a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer" class="social-link flex flex-col items-center gap-2 text-slate-300 hover:text-[#1DA1F2] transition-colors group">
+                        <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#1DA1F2]/10 group-hover:border-[#1DA1F2]/30 border-white/5 transition-all">
+                            <i class="ph ph-twitter-logo text-3xl"></i>
+                        </div>
+                        <span class="text-sm font-medium">X / Twitter</span>
+                    </a>
+
+                    <a href="https://linkedin.com/in/aham-sanjag" target="_blank" rel="noopener noreferrer" class="social-link flex flex-col items-center gap-2 text-slate-300 hover:text-[#0A66C2] transition-colors group">
+                        <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/30 border-white/5 transition-all">
+                            <i class="ph ph-linkedin-logo text-3xl"></i>
+                        </div>
+                        <span class="text-sm font-medium">LinkedIn</span>
+                    </a>
+
+                    <a href="https://t.me/YourHandle" target="_blank" rel="noopener noreferrer" class="social-link flex flex-col items-center gap-2 text-slate-300 hover:text-[#0088cc] transition-colors group">
+                        <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#0088cc]/10 group-hover:border-[#0088cc]/30 border-white/5 transition-all">
+                            <i class="ph ph-telegram-logo text-3xl"></i>
+                        </div>
+                        <span class="text-sm font-medium">Telegram</span>
                     </a>
                 </div>
-            </div>
-        </div>
-        
-        <!-- Decorative Elements -->
-        <div class="absolute top-1/4 right-[10%] w-72 h-72 bg-brand-500/20 rounded-full blur-[100px] -z-10"></div>
-        <div class="absolute bottom-1/4 left-[10%] w-96 h-96 bg-accent-500/10 rounded-full blur-[120px] -z-10"></div>
-    </header>
 
-    <!-- About Section -->
-    <section id="about" class="py-24 relative">
-        <div class="max-w-4xl mx-auto px-6 fade-in-section">
-            <div class="w-full">
-                <h2 class="text-3xl font-bold section-heading mb-6 flex items-center gap-2">
-                    <i class="ph ph-user text-brand-500"></i> About Me
-                </h2>
-                <p class="text-slate-300 leading-relaxed mb-6 text-lg">
-                    I'm a passionate developer who thrives in high-energy environments. I've participated in numerous hackathons where I love the challenge of taking an idea from zero to prototype and building something meaningful under pressure.
-                </p>
-                <p class="text-slate-300 leading-relaxed text-lg">
-                    The idea is simple: write clean code, focus on the user experience, and never stop learning. Whether it's spinning up a React frontend, writing Solidity smart contracts, or making AI models actually useful, I enjoy solving real problems with a practical edge.
-                </p>
-                
-                <div class="mt-8 grid grid-cols-2 md:grid-cols-4 gap-4">
-                    <div class="glass p-4 rounded-xl text-center border-white/5">
-                        <h4 class="text-2xl font-bold text-white mb-1">10+</h4>
-                        <p class="text-xs text-slate-400 uppercase tracking-wider">Hackathons</p>
-                    </div>
-                    <div class="glass p-4 rounded-xl text-center border-white/5">
-                        <h4 class="text-2xl font-bold text-white mb-1">3</h4>
-                        <p class="text-xs text-slate-400 uppercase tracking-wider">Wins</p>
-                    </div>
-                    <div class="glass p-4 rounded-xl text-center border-white/5">
-                        <h4 class="text-2xl font-bold text-white mb-1">20+</h4>
-                        <p class="text-xs text-slate-400 uppercase tracking-wider">Projects</p>
-                    </div>
-                    <div class="glass p-4 rounded-xl text-center border-white/5">
-                        <h4 class="text-2xl font-bold text-white mb-1">3 Yrs</h4>
-                        <p class="text-xs text-slate-400 uppercase tracking-wider">Experience</p>
+                <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                    <p class="text-slate-400 text-sm">
+                        &copy; <span id="year"></span> Aham Sanjag. Built for the next challenge.
+                    </p>
+                    <div class="flex gap-4 text-sm text-slate-400">
+                        <span>Designed with <i class="ph-fill ph-heart text-brand-500"></i> & Tailwind</span>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </footer>
+    </div>
 
-    <!-- Skills Section -->
-    <section id="skills" class="py-24 bg-black/40 relative border-y border-white/5">
-        <div class="max-w-6xl mx-auto px-6 fade-in-section">
-            <div class="text-center mb-16">
-                <h2 class="text-3xl font-bold text-white mb-4">Tech Arsenal</h2>
-                <p class="text-slate-300 max-w-2xl mx-auto">The tools, languages, and frameworks I use to bring ideas to life rapidly.</p>
-            </div>
-            
-            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
-                <!-- AI & ML -->
-                <div class="glass p-8 rounded-2xl border-white/5 hover:border-brand-500/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-brand-500/20 text-brand-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="ph ph-brain"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">AI & Machine Learning</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">Python</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">OpenCV</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">YOLO</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-orange-500/10 border border-orange-500/20 text-orange-400">Scikit-Learn</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-cyan-500/10 border border-cyan-500/20 text-cyan-400">TensorFlow/PyTorch</span>
-                    </div>
-                </div>
-
-                <!-- Data Science -->
-                <div class="glass p-8 rounded-2xl border-white/5 hover:border-accent-500/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-accent-500/20 text-accent-500 flex items-center justify-center text-2xl mb-6">
-                        <i class="ph ph-chart-line-up"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Data Science</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-full bg-green-500/10 border border-green-500/20 text-green-400">Pandas</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">NumPy</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-yellow-500/10 border border-yellow-500/20 text-yellow-400">Jupyter</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-red-400/10 border border-red-400/20 text-red-300">XGBoost</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-500">SQL</span>
-                    </div>
-                </div>
-
-                <!-- Software Engineering -->
-                <div class="glass p-8 rounded-2xl border-white/5 hover:border-purple-500/30 transition-colors">
-                    <div class="w-12 h-12 rounded-xl bg-purple-500/20 text-purple-400 flex items-center justify-center text-2xl mb-6">
-                        <i class="ph ph-code"></i>
-                    </div>
-                    <h3 class="text-xl font-bold text-white mb-4">Software Engineering</h3>
-                    <div class="flex flex-wrap gap-2">
-                        <span class="px-3 py-1 text-sm rounded-full bg-gray-500/10 border border-gray-500/20 text-slate-200">C++</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-blue-600/10 border border-blue-600/20 text-blue-400">React</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-green-500/10 border border-green-500/20 text-green-400">Node.js</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-white/5 border border-white/10 text-slate-200">Git/GitHub</span>
-                        <span class="px-3 py-1 text-sm rounded-full bg-blue-500/10 border border-blue-500/20 text-blue-400">Docker</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="py-24 relative">
-        <div class="max-w-6xl mx-auto px-6 fade-in-section">
-            <div class="flex justify-between items-end mb-12">
-                <div>
-                    <h2 class="text-3xl font-bold section-heading mb-4">Featured Projects</h2>
-                    <p class="text-slate-300 max-w-xl">A selection of hackathon winners and weekend builds.</p>
-                </div>
-                <a href="https://github.com/AhamSanjag" target="_blank" class="hidden md:flex items-center gap-2 text-brand-400 hover:text-brand-300 transition-colors">
-                    View all on GitHub <i class="ph ph-arrow-right"></i>
-                </a>
-            </div>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Project Card 1 -->
-                <div class="glass rounded-2xl overflow-hidden border-white/5 group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                    <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://placehold.co/600x400/1a1a1a/8b5cf6?text=Road+Vision+AI" alt="Road Vision AI" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Road Vision AI</h3>
-                        <p class="text-slate-300 text-sm mb-6 flex-1">An intelligent computer vision application designed to analyze road conditions, detect obstacles, and enhance autonomous driving safety through real-time visual insights.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">OpenCV</span>
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">YOLO</span>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
-                            <a href="https://github.com/AhamSanjag/Road-Vision-AI" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
-                            <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 2 -->
-                <div class="glass rounded-2xl overflow-hidden border-white/5 group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                    <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://placehold.co/600x400/1a1a1a/06b6d4?text=Trade+Prediction" alt="Trade Prediction" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Trade Prediction</h3>
-                        <p class="text-slate-300 text-sm mb-6 flex-1">A machine learning pipeline built to analyze historical market data, extract indicators, and predict future trading trends.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Scikit-Learn</span>
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Pandas</span>
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">XGBoost</span>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
-                            <a href="https://github.com/AhamSanjag/Trade-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
-                            <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project Card 3 -->
-                <div class="glass rounded-2xl overflow-hidden border-white/5 group hover:-translate-y-2 transition-transform duration-300 flex flex-col">
-                    <div class="relative h-48 overflow-hidden bg-black">
-                        <img src="https://placehold.co/600x400/1a1a1a/22c55e?text=Fuel+Prediction" alt="Fuel Prediction" class="w-full h-full object-cover opacity-80 group-hover:opacity-100 group-hover:scale-105 transition-transform duration-500">
-                    </div>
-                    <div class="p-6 flex-1 flex flex-col">
-                        <h3 class="text-xl font-bold text-white mb-2">Fuel Prediction</h3>
-                        <p class="text-slate-300 text-sm mb-6 flex-1">A data-driven regression model aimed at forecasting fuel consumption and optimizing efficiency for logistics and routing.</p>
-                        
-                        <div class="flex flex-wrap gap-2 mb-6">
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Python</span>
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Pandas</span>
-                            <span class="text-xs text-slate-300 bg-white/5 px-2 py-1 rounded">Jupyter</span>
-                        </div>
-                        
-                        <div class="flex items-center gap-4 pt-4 border-t border-white/10 mt-auto">
-                            <a href="https://github.com/AhamSanjag/Fuel-Prediction" target="_blank" class="text-white hover:text-brand-400 transition-colors" aria-label="GitHub Repository"><i class="ph ph-github-logo text-xl"></i></a>
-                            <a href="#" class="text-white hover:text-brand-400 transition-colors" aria-label="Project Link"><i class="ph ph-arrow-up-right text-xl"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="mt-8 text-center md:hidden">
-                <a href="https://github.com/AhamSanjag" target="_blank" class="inline-flex items-center gap-2 text-brand-400 font-medium">
-                    View all on GitHub <i class="ph ph-arrow-right"></i>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- Footer / Contact Section -->
-    <footer id="contact" class="bg-black/60 border-t border-white/10 pt-20 pb-10 relative overflow-hidden">
-        <div class="max-w-6xl mx-auto px-6 relative z-10 fade-in-section">
-            <div class="text-center max-w-2xl mx-auto mb-16">
-                <h2 class="text-4xl font-bold text-white mb-6">Ready to Build?</h2>
-                <p class="text-slate-300 text-lg mb-8">
-                    Looking for a driven developer for your next hackathon team? Or have an exciting web3 project in mind? Let's connect.
-                </p>
-                <a href="mailto:hello@example.com" class="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-brand-500 text-white font-bold hover:bg-brand-400 transition-colors shadow-[0_0_20px_rgba(139,92,246,0.45)] hover:shadow-[0_0_30px_rgba(139,92,246,0.6)]">
-                    <i class="ph ph-envelope-simple text-xl"></i> Drop me an email
-                </a>
-            </div>
-
-            <!-- Social Links (Matching ETHGlobal Form) -->
-            <div class="flex flex-wrap justify-center gap-4 md:gap-8 mb-16">
-                <a href="https://github.com/AhamSanjag" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-white transition-colors group">
-                    <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-white/10 border-white/5 transition-all">
-                        <i class="ph ph-github-logo text-3xl"></i>
-                    </div>
-                    <span class="text-sm font-medium">GitHub</span>
-                </a>
-                
-                <a href="https://twitter.com/YourHandle" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-[#1DA1F2] transition-colors group">
-                    <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#1DA1F2]/10 group-hover:border-[#1DA1F2]/30 border-white/5 transition-all">
-                        <i class="ph ph-twitter-logo text-3xl"></i>
-                    </div>
-                    <span class="text-sm font-medium">X / Twitter</span>
-                </a>
-                
-                <a href="https://linkedin.com/in/aham-sanjag" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-[#0A66C2] transition-colors group">
-                    <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#0A66C2]/10 group-hover:border-[#0A66C2]/30 border-white/5 transition-all">
-                        <i class="ph ph-linkedin-logo text-3xl"></i>
-                    </div>
-                    <span class="text-sm font-medium">LinkedIn</span>
-                </a>
-                
-                <a href="https://t.me/YourHandle" target="_blank" rel="noopener noreferrer" class="flex flex-col items-center gap-2 text-slate-300 hover:text-[#0088cc] transition-colors group">
-                    <div class="w-14 h-14 rounded-full glass flex items-center justify-center group-hover:bg-[#0088cc]/10 group-hover:border-[#0088cc]/30 border-white/5 transition-all">
-                        <i class="ph ph-telegram-logo text-3xl"></i>
-                    </div>
-                    <span class="text-sm font-medium">Telegram</span>
-                </a>
-            </div>
-
-            <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-                <p class="text-slate-400 text-sm">
-                    &copy; <span id="year"></span> Aham Sanjag. Built for the next challenge.
-                </p>
-                <div class="flex gap-4 text-sm text-slate-400">
-                    <span>Designed with <i class="ph-fill ph-heart text-brand-500"></i> & Tailwind</span>
-                </div>
-            </div>
-        </div>
-        
-        <div class="absolute bottom-0 left-1/2 -translate-x-1/2 w-[800px] h-[300px] bg-brand-500/10 rounded-t-full blur-[120px] -z-10 pointer-events-none"></div>
-    </footer>
-
-    <!-- Interactive Scripts -->
     <script>
-        // Set current year
         document.getElementById('year').textContent = new Date().getFullYear();
 
-        // Mobile Menu Toggle
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
         const mobileLinks = document.querySelectorAll('.mobile-link');
@@ -430,43 +549,62 @@
             });
         });
 
-        // Sticky Navbar effect
         const navbar = document.getElementById('navbar');
         window.addEventListener('scroll', () => {
-            if (window.scrollY > 50) {
-                navbar.classList.add('shadow-lg', 'bg-darker/90');
-                navbar.classList.remove('bg-transparent');
+            if (window.scrollY > 30) {
+                navbar.classList.add('backdrop-blur-xl', 'bg-black/30', 'border-white/10');
             } else {
-                navbar.classList.remove('shadow-lg', 'bg-darker/90');
-                navbar.classList.add('bg-transparent');
+                navbar.classList.remove('backdrop-blur-xl', 'bg-black/30', 'border-white/10');
             }
         });
 
-        // Intersection Observer for scroll animations (fade in)
-        const setupObserver = () => {
-            const options = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.15
-            };
+        const revealItems = document.querySelectorAll('.reveal');
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    observer.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12 });
 
-            const observer = new IntersectionObserver((entries, observer) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('is-visible');
-                        observer.unobserve(entry.target); // Only animate once
-                    }
-                });
-            }, options);
+        revealItems.forEach(item => observer.observe(item));
 
-            const sections = document.querySelectorAll('.fade-in-section');
+        const navLinks = document.querySelectorAll('.nav-link');
+        const sections = document.querySelectorAll('section[id]');
+        const setActiveLink = () => {
+            let current = 'about';
             sections.forEach(section => {
-                observer.observe(section);
+                const rect = section.getBoundingClientRect();
+                if (rect.top <= 150 && rect.bottom >= 150) {
+                    current = section.id;
+                }
+            });
+
+            navLinks.forEach(link => {
+                const isActive = link.getAttribute('href') === '#' + current;
+                link.classList.toggle('text-white', isActive);
+                link.classList.toggle('text-slate-200', !isActive);
             });
         };
 
-        // Initialize observer when DOM is loaded
-        document.addEventListener('DOMContentLoaded', setupObserver);
+        window.addEventListener('scroll', setActiveLink);
+        setActiveLink();
+
+        document.querySelectorAll('.project-card').forEach(card => {
+            card.addEventListener('mousemove', (event) => {
+                const rect = card.getBoundingClientRect();
+                const x = event.clientX - rect.left;
+                const y = event.clientY - rect.top;
+                const rotateY = ((x / rect.width) - 0.5) * 8;
+                const rotateX = (0.5 - (y / rect.height)) * 8;
+                card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(-8px)`;
+            });
+
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = '';
+            });
+        });
     </script>
 </body>
 </html>
